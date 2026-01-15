@@ -13,7 +13,6 @@ RUN npm run build
 FROM node:25-alpine
 ENV NODE_ENV=production
 WORKDIR /app
-COPY  .env ./.env
 COPY package.json ./
 COPY package-lock.json ./
 RUN npm ci --omit=dev

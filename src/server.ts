@@ -1,4 +1,3 @@
-process.loadEnvFile();
 import "./env.js";
 import express from "express";
 import vento from "ventojs";
