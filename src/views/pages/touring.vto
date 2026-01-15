@@ -63,7 +63,7 @@
   }
 
   .intro {
-    padding: 28px 0 16px;
+    padding: 28px 0 10px;
   }
 
   .eyebrow {
@@ -76,7 +76,7 @@
 
   .intro h1 {
     margin: 0 0 12px;
-    font-size: clamp(2rem, 3.5vw, 2.7rem);
+    font-size: clamp(1.9rem, 3vw, 2.4rem);
     font-weight: 600;
   }
 
@@ -89,36 +89,36 @@
   }
 
   .section {
-    margin: 26px 0 0;
+    margin: 22px 0 0;
     padding-top: 14px;
     border-top: 1px solid var(--line);
   }
 
-  .section h2 {
-    font-size: 1.02rem;
-    margin-bottom: 10px;
-    font-weight: 600;
-  }
-
-  .skills {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
-    gap: 8px 18px;
-    color: var(--muted);
-    font-size: 0.98rem;
-  }
-
-  .skills li {
-    padding-bottom: 4px;
+  .update {
+    padding: 10px 0 12px;
     border-bottom: 1px solid var(--line);
   }
 
-  .focus {
-    margin-top: 12px;
+  .update:last-child {
+    border-bottom: none;
+  }
+
+  .update h2 {
+    margin: 0 0 6px;
+    font-size: 1.05rem;
+  }
+
+  .update p {
+    margin: 0;
     color: var(--muted);
+    line-height: 1.6;
+  }
+
+  .update span {
+    display: block;
+    margin-top: 6px;
+    color: var(--accent);
+    font-size: 0.9rem;
   }
 
   footer {
@@ -140,30 +140,31 @@
   {{ include "partials/nav.vto" }}
 
   <header class="intro">
-    <div class="eyebrow">Software Engineer</div>
-    <h1>Brian Greeson</h1>
-    <p>
-Engineer and builder with a background in embedded systems, web software, and field tested projects, I like working on real problems, building things end to end, and putting them to use outside of a slide deck.    </p>
+    <div class="eyebrow">Bicycle Touring</div>
+    <h1>Touring updates and notes.</h1>
+    <p>Short, practical notes on the route, the ride, and what is next on the tour.</p>
   </header>
 
   <section class="section">
-    <h2>Software Engineering Skillset</h2>
-    <ul class="skills">
-      <li>Product engineering and full-stack delivery.</li>
-      <li>Platform services, observability, and data pipelines.</li>
-      <li>Sensor integrations and geospatial workflows.</li>
-      <li>UX systems for clear, trustworthy decision-making.</li>
-      <li>Technical leadership and cross-functional alignment.</li>
-      <li>Reliable infrastructure for remote, real-world operations.</li>
-    </ul>
-    <p class="focus">
-      Currently focused on mountain safety, cycling intelligence, and tooling that helps
-      teams move confidently in the field.
-    </p>
+    <div class="update">
+      <h2>Current Route</h2>
+      <p>Pacific Northwest loop with coastal climbs, gravel segments, and forest campgrounds.</p>
+      <span>Last update: add your date + location here.</span>
+    </div>
+    <div class="update">
+      <h2>Tour Log</h2>
+      <p>Daily mileage, elevation, and gear notes tracked in a lightweight journal.</p>
+      <span>Next stop: add your next checkpoint.</span>
+    </div>
+    <div class="update">
+      <h2>Gear Callouts</h2>
+      <p>Favorites: dynamo lighting, rain shell, camera rig, and tool roll.</p>
+      <span>Swap these lines for fresh highlights.</span>
+    </div>
   </section>
 
   <footer>
-    Contact me for collaboration, product strategy, or a good riding story.
+    Touring updates get refreshed when I roll into a new town.
   </footer>
 </div>
 

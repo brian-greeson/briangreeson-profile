@@ -63,7 +63,7 @@
   }
 
   .intro {
-    padding: 28px 0 16px;
+    padding: 28px 0 10px;
   }
 
   .eyebrow {
@@ -76,7 +76,7 @@
 
   .intro h1 {
     margin: 0 0 12px;
-    font-size: clamp(2rem, 3.5vw, 2.7rem);
+    font-size: clamp(1.9rem, 3vw, 2.4rem);
     font-weight: 600;
   }
 
@@ -89,36 +89,17 @@
   }
 
   .section {
-    margin: 26px 0 0;
+    margin: 22px 0 0;
     padding-top: 14px;
     border-top: 1px solid var(--line);
   }
 
-  .section h2 {
-    font-size: 1.02rem;
-    margin-bottom: 10px;
-    font-weight: 600;
-  }
-
-  .skills {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
-    gap: 8px 18px;
-    color: var(--muted);
+  .contact-link {
+    display: inline-block;
+    margin-top: 8px;
+    color: var(--accent);
+    text-decoration: none;
     font-size: 0.98rem;
-  }
-
-  .skills li {
-    padding-bottom: 4px;
-    border-bottom: 1px solid var(--line);
-  }
-
-  .focus {
-    margin-top: 12px;
-    color: var(--muted);
   }
 
   footer {
@@ -140,30 +121,23 @@
   {{ include "partials/nav.vto" }}
 
   <header class="intro">
-    <div class="eyebrow">Software Engineer</div>
-    <h1>Brian Greeson</h1>
+    <div class="eyebrow">Contact</div>
+    <h1>Let us connect.</h1>
     <p>
-Engineer and builder with a background in embedded systems, web software, and field tested projects, I like working on real problems, building things end to end, and putting them to use outside of a slide deck.    </p>
+      Reach out for collaboration, product strategy, or a quick conversation about
+      bikes, mountains, and building real-world tools.
+    </p>
   </header>
 
   <section class="section">
-    <h2>Software Engineering Skillset</h2>
-    <ul class="skills">
-      <li>Product engineering and full-stack delivery.</li>
-      <li>Platform services, observability, and data pipelines.</li>
-      <li>Sensor integrations and geospatial workflows.</li>
-      <li>UX systems for clear, trustworthy decision-making.</li>
-      <li>Technical leadership and cross-functional alignment.</li>
-      <li>Reliable infrastructure for remote, real-world operations.</li>
-    </ul>
-    <p class="focus">
-      Currently focused on mountain safety, cycling intelligence, and tooling that helps
-      teams move confidently in the field.
-    </p>
+    <p>LinkedIn is the fastest way to connect.</p>
+    <a class="contact-link" href="https://www.linkedin.com/briangreeson" target="_blank" rel="noopener">
+      linkedin.com/in/BrianGreeson
+    </a>
   </section>
 
   <footer>
-    Contact me for collaboration, product strategy, or a good riding story.
+    Thanks for stopping by.
   </footer>
 </div>
 

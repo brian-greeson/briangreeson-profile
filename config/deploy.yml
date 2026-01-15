@@ -1,14 +1,14 @@
 # Name of your application. Used to uniquely configure containers.
-service: SETME
+service: briangreeson-profile
 
 # Name of the container image.
-image: SETME
+image: briangreeson-profile
 
 # Deploy to these servers.
 servers:
   web:
-    # - 192.168.0.1
-    - SETME.com
+    # - 192.168.50.148
+    - angrytuna.asuscomm.com
 
   # job:
   #   hosts:
@@ -22,8 +22,8 @@ servers:
 proxy:
   ssl: true
   hosts: 
-  - www.SETMYHOST.com
-  - SETMYHOST.com
+  - www.briangreeson.com
+  - briangreeson.com
   # Proxy connects to your container on port 80 by default.
   app_port: 3000
 
@@ -65,7 +65,7 @@ ssh:
   user: main
   keys_only: true
   keys:
-    - "SETME"
+    - "~/.ssh/id_ed25519_tuna"
 
 
 # Use a persistent storage volume.

@@ -10,8 +10,8 @@
   ],
   "main": "index.js",
   "scripts": {
-    "dev": "tsx watch src/server.ts --watch src",
-    "build": "tsc",
+    "dev": "tsx watch src/server.ts --watch src/**/* --watch src/views/**/*.vto",
+    "build": "tsc && cp -R src/views dist/views",
     "start": "node dist/server.js",
     "test": "echo \"Error: no test specified\" && exit 1",
     "db:generate": "drizzle-kit generate",
