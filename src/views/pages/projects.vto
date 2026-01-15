@@ -1,0 +1,176 @@
+{{ layout "layouts/appLayout.vto"}}
+<style>
+  @import url("https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600&display=swap");
+
+  :root {
+    --ink: #111318;
+    --muted: #5f656f;
+    --line: #e7e9ee;
+    --accent: #1c5166;
+  }
+
+  * {
+    box-sizing: border-box;
+  }
+
+  body {
+    margin: 0;
+    font-family: "Space Grotesk", "Trebuchet MS", sans-serif;
+    color: var(--ink);
+    background: linear-gradient(180deg, #ffffff 0%, #f6f7f9 100%);
+  }
+
+  #main-content {
+    padding: 28px 20px 44px;
+  }
+
+  .page {
+    max-width: 840px;
+    margin: 0 auto;
+  }
+
+  .nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 6px 0 18px;
+    gap: 14px;
+    flex-wrap: wrap;
+    border-bottom: 1px solid var(--line);
+  }
+
+  .brand {
+    font-weight: 500;
+    font-size: 1rem;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+  }
+
+  .nav-links {
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+    font-size: 0.9rem;
+  }
+
+  .nav a {
+    color: var(--ink);
+    text-decoration: none;
+  }
+
+  .nav a:hover {
+    color: var(--accent);
+  }
+
+  .intro {
+    padding: 28px 0 10px;
+  }
+
+  .eyebrow {
+    margin: 0 0 10px;
+    color: var(--muted);
+    font-size: 0.8rem;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+  }
+
+  .intro h1 {
+    margin: 0 0 12px;
+    font-size: clamp(1.9rem, 3vw, 2.4rem);
+    font-weight: 600;
+  }
+
+  .intro p {
+    margin: 0;
+    color: var(--muted);
+    font-size: 1.02rem;
+    line-height: 1.6;
+    max-width: 600px;
+  }
+
+  .section {
+    margin: 22px 0 0;
+    padding-top: 14px;
+    border-top: 1px solid var(--line);
+  }
+
+  .project {
+    padding: 10px 0 12px;
+    border-bottom: 1px solid var(--line);
+  }
+
+  .project:last-child {
+    border-bottom: none;
+  }
+
+  .project h2 {
+    margin: 0 0 6px;
+    font-size: 1.05rem;
+  }
+
+  .project p {
+    margin: 0;
+    color: var(--muted);
+    line-height: 1.6;
+  }
+
+  .project a {
+    color: var(--accent);
+    text-decoration: none;
+    font-size: 0.92rem;
+  }
+
+  footer {
+    margin-top: 28px;
+    color: var(--muted);
+    font-size: 0.88rem;
+    border-top: 1px solid var(--line);
+    padding-top: 12px;
+  }
+
+  @media (max-width: 720px) {
+    #main-content {
+      padding: 20px 16px 36px;
+    }
+  }
+</style>
+
+<div class="page">
+  {{ include "partials/nav.vto" }}
+
+  <header class="intro">
+    <div class="eyebrow">Side Projects</div>
+    <h1>What I'm Working on.</h1>
+    <p>What do i do in my spare time?</p>
+  </header>
+
+  <section class="section">
+    <div class="project">
+      <h2>MountainSentry</h2>
+      <p>Mountain Sentry is a technology company building sensor driven hardware and software platforms that improve safety, situational awareness, and data collection in outdoor and transportation environments.</p>
+      <a href="https://mountainsentry.com" target="_blank" rel="noopener">mountainsentry.com</a>
+    </div>
+    <div class="project">
+      <h2>CycleSentry</h2>
+      <p>
+        Bicycle mounted sensing system that detects, records, and reports unsafe vehicle passing
+        distances to improve cyclist safety and support data driven enforcement.
+      </p>
+      <a href="https://cyclesentry.com" target="_blank" rel="noopener">cyclesentry.com</a>
+    </div>
+    <div class="project">
+      <h2>StratoSurvey</h2>
+      <p>
+        On demand atmospheric radio sonde service with real-time data collection. Deploy sensor exactly where and when you need them to collect high
+        resolution wind and weather measurements for aviation, research, and planning.
+      </p>
+      <a href="https://stratosurvey.com" target="_blank" rel="noopener">stratosurvey.com</a>
+    </div>
+  </section>
+
+  <footer>
+    Want deeper details? Reach out for a product walkthrough.
+  </footer>
+</div>
+
+{{ /layout }}

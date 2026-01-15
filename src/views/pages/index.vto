@@ -1,0 +1,170 @@
+{{ layout "layouts/appLayout.vto"}}
+<style>
+  @import url("https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600&display=swap");
+
+  :root {
+    --ink: #111318;
+    --muted: #5f656f;
+    --line: #e7e9ee;
+    --accent: #1c5166;
+  }
+
+  * {
+    box-sizing: border-box;
+  }
+
+  body {
+    margin: 0;
+    font-family: "Space Grotesk", "Trebuchet MS", sans-serif;
+    color: var(--ink);
+    background: linear-gradient(180deg, #ffffff 0%, #f6f7f9 100%);
+  }
+
+  #main-content {
+    padding: 28px 20px 44px;
+  }
+
+  .page {
+    max-width: 840px;
+    margin: 0 auto;
+  }
+
+  .nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 6px 0 18px;
+    gap: 14px;
+    flex-wrap: wrap;
+    border-bottom: 1px solid var(--line);
+  }
+
+  .brand {
+    font-weight: 500;
+    font-size: 1rem;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+  }
+
+  .nav-links {
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+    font-size: 0.9rem;
+  }
+
+  .nav a {
+    color: var(--ink);
+    text-decoration: none;
+  }
+
+  .nav a:hover {
+    color: var(--accent);
+  }
+
+  .intro {
+    padding: 28px 0 16px;
+  }
+
+  .eyebrow {
+    margin: 0 0 10px;
+    color: var(--muted);
+    font-size: 0.8rem;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+  }
+
+  .intro h1 {
+    margin: 0 0 12px;
+    font-size: clamp(2rem, 3.5vw, 2.7rem);
+    font-weight: 600;
+  }
+
+  .intro p {
+    margin: 0;
+    color: var(--muted);
+    font-size: 1.02rem;
+    line-height: 1.6;
+    max-width: 600px;
+  }
+
+  .section {
+    margin: 26px 0 0;
+    padding-top: 14px;
+    border-top: 1px solid var(--line);
+  }
+
+  .section h2 {
+    font-size: 1.02rem;
+    margin-bottom: 10px;
+    font-weight: 600;
+  }
+
+  .skills {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+    gap: 8px 18px;
+    color: var(--muted);
+    font-size: 0.98rem;
+  }
+
+  .skills li {
+    padding-bottom: 4px;
+    border-bottom: 1px solid var(--line);
+  }
+
+  .focus {
+    margin-top: 12px;
+    color: var(--muted);
+  }
+
+  footer {
+    margin-top: 28px;
+    color: var(--muted);
+    font-size: 0.88rem;
+    border-top: 1px solid var(--line);
+    padding-top: 12px;
+  }
+
+  @media (max-width: 720px) {
+    #main-content {
+      padding: 20px 16px 36px;
+    }
+  }
+</style>
+
+<div class="page">
+  {{ include "partials/nav.vto" }}
+
+  <header class="intro">
+    <div class="eyebrow">Software Engineer</div>
+    <h1>Brian Greeson</h1>
+    <p>
+Engineer and builder with a background in embedded systems, web software, and field tested projects, I like working on real problems, building things end to end, and putting them to use outside of a slide deck.    </p>
+  </header>
+
+  <section class="section">
+    <h2>Software Engineering Skillset</h2>
+    <ul class="skills">
+      <li>Product engineering and full-stack delivery.</li>
+      <li>Platform services, observability, and data pipelines.</li>
+      <li>Sensor integrations and geospatial workflows.</li>
+      <li>UX systems for clear, trustworthy decision-making.</li>
+      <li>Technical leadership and cross-functional alignment.</li>
+      <li>Reliable infrastructure for remote, real-world operations.</li>
+    </ul>
+    <p class="focus">
+      Currently focused on mountain safety, cycling intelligence, and tooling that helps
+      teams move confidently in the field.
+    </p>
+  </section>
+
+  <footer>
+    Contact me for collaboration, product strategy, or a good riding story.
+  </footer>
+</div>
+
+{{ /layout }}
