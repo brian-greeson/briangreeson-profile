@@ -42,8 +42,6 @@ app.get("/contact", async (req, res) => {
 });
 
 app.get("/up", async (req, res) => {
-  console.log(process.env.DB_FILE_NAME);
-  console.log("up");
   res.sendStatus(200);
 });
 
