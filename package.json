@@ -18,7 +18,7 @@
     "db:generate": "drizzle-kit generate",
     "db:migrate": "drizzle-kit migrate",
     "db:seed": "tsx src/db/seed.ts",
-    "deploy:prod": "kamal deploy -d production"
+    "deploy:prod": "kamal deploy"
   },
   "keywords": [],
   "author": "",
