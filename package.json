@@ -10,14 +10,15 @@
   ],
   "main": "index.js",
   "scripts": {
-    "dev": "tsx watch src/server.ts --watch src/**/* --watch src/views/**/*.vto",
+    "dev": "tsx watch src/server.ts --watch src/**/* --watch './src/views/**/*'",
     "build": "tsc && cp -R src/views dist/views",
     "start": "node dist/server.js",
     "test": "echo \"Error: no test specified\" && exit 1",
     "docker:build": "docker build -t briangreeson-profile .",
     "db:generate": "drizzle-kit generate",
     "db:migrate": "drizzle-kit migrate",
-    "db:seed": "tsx src/db/seed.ts"
+    "db:seed": "tsx src/db/seed.ts",
+    "deploy:prod": "kamal deploy -d production"
   },
   "keywords": [],
   "author": "",
