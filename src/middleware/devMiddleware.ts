@@ -6,10 +6,11 @@ type VentoEnv = {
   };
 };
 
-export const devMiddleware = (env: VentoEnv) => {
+export const devMiddleware = (vento: VentoEnv) => {
   return (_req: Request, _res: Response, next: NextFunction) => {
     console.log("cleared cache")
-    env.cache.clear();
+    vento.cache.clear();
+    console.log("Route:", _req.path);
     next();
   };
 };
