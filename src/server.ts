@@ -2,6 +2,7 @@ import "./env.js";
 import express from "express";
 import vento from "ventojs";
 import { devMiddleware } from "./middleware/devMiddleware.js";
+import { getTourBlogData } from "./services/rideWithGps.js";
 
 const templates = vento({
   includes: "./src/views/",
@@ -29,8 +30,9 @@ app.get("/projects", async (req, res) => {
 
 app.get("/touring", async (req, res) => {
   const touringTemplate = await templates.load("pages/touring.vto");
+  const tourBlog = await getTourBlogData();
 
-  const result = await touringTemplate();
+  const result = await touringTemplate({ tourBlog });
   res.type("html").send(result.content);
 });
 

@@ -1,12 +1,14 @@
 {{ layout "layouts/appLayout.vto"}}
 <style>
-  @import url("https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600&display=swap");
+  @import url("https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&display=swap");
 
   :root {
     --ink: #111318;
     --muted: #5f656f;
-    --line: #e7e9ee;
-    --accent: #1c5166;
+    --line: #e5e8ef;
+    --accent: #0f5b74;
+    --accent-soft: #d9edf4;
+    --paper: #f7f9fc;
   }
 
   * {
@@ -17,7 +19,8 @@
     margin: 0;
     font-family: "Space Grotesk", "Trebuchet MS", sans-serif;
     color: var(--ink);
-    background: linear-gradient(180deg, #ffffff 0%, #f6f7f9 100%);
+    background: radial-gradient(1200px 600px at 10% -5%, #d9edf4 0%, transparent 60%),
+      linear-gradient(180deg, #ffffff 0%, #f7f9fc 100%);
   }
 
   #main-content {
@@ -25,113 +28,188 @@
   }
 
   .page {
-    max-width: 840px;
+    max-width: 920px;
     margin: 0 auto;
   }
 
-  .nav {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 6px 0 18px;
-    gap: 14px;
-    flex-wrap: wrap;
-    border-bottom: 1px solid var(--line);
-  }
-
-  .brand {
-    font-weight: 500;
-    font-size: 1rem;
-    letter-spacing: 0.04em;
-    text-transform: uppercase;
-  }
-
-  .nav-links {
-    display: flex;
-    gap: 12px;
-    flex-wrap: wrap;
-    font-size: 0.9rem;
-  }
-
-  .nav a {
-    color: var(--ink);
-    text-decoration: none;
-  }
-
-  .nav a:hover {
-    color: var(--accent);
-  }
-
   .intro {
-    padding: 28px 0 10px;
+    margin-top: 24px;
+    padding: 26px 24px;
+    border: 1px solid var(--line);
+    border-radius: 18px;
+    background: #ffffff;
   }
 
   .eyebrow {
-    margin: 0 0 10px;
+    margin: 0;
     color: var(--muted);
     font-size: 0.8rem;
-    letter-spacing: 0.16em;
+    letter-spacing: 0.14em;
     text-transform: uppercase;
   }
 
   .intro h1 {
-    margin: 0 0 12px;
-    font-size: clamp(1.9rem, 3vw, 2.4rem);
-    font-weight: 600;
+    margin: 10px 0 10px;
+    font-size: clamp(2rem, 4vw, 2.8rem);
+    line-height: 1.1;
   }
 
   .intro p {
     margin: 0;
+    max-width: 680px;
     color: var(--muted);
-    font-size: 1.02rem;
-    line-height: 1.6;
-    max-width: 600px;
+    line-height: 1.65;
   }
 
-  .section {
-    margin: 22px 0 0;
-    padding-top: 14px;
-    border-top: 1px solid var(--line);
+  .intro a {
+    color: var(--accent);
   }
 
-  .update {
-    padding: 10px 0 12px;
+  .stats {
+    margin-top: 16px;
+    display: grid;
+    grid-template-columns: repeat(3, minmax(120px, 1fr));
+    gap: 10px;
+  }
+
+  .stat {
+    border: 1px solid var(--line);
+    border-radius: 14px;
+    background: #ffffff;
+    padding: 14px 14px 12px;
+  }
+
+  .stat-label {
+    display: block;
+    color: var(--muted);
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    font-size: 0.72rem;
+  }
+
+  .stat-value {
+    display: block;
+    margin-top: 7px;
+    font-size: 1.3rem;
+    font-weight: 600;
+  }
+
+  .status {
+    margin-top: 14px;
+    padding: 14px;
+    border-radius: 12px;
+    border: 1px solid var(--line);
+    background: #ffffff;
+  }
+
+  .status p {
+    margin: 0;
+    color: var(--muted);
+    line-height: 1.5;
+  }
+
+  .status.error {
+    border-color: #efc7c7;
+    background: #fff8f8;
+  }
+
+  .feed {
+    margin-top: 18px;
+    display: grid;
+    gap: 12px;
+  }
+
+  .ride {
+    border: 1px solid var(--line);
+    border-radius: 14px;
+    background: #ffffff;
+    overflow: hidden;
+  }
+
+  .ride-image {
+    width: 100%;
+    display: block;
+    max-height: 300px;
+    object-fit: cover;
     border-bottom: 1px solid var(--line);
   }
 
-  .update:last-child {
-    border-bottom: none;
+  .ride-body {
+    padding: 16px 16px 14px;
   }
 
-  .update h2 {
-    margin: 0 0 6px;
-    font-size: 1.05rem;
+  .ride-head {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: 10px;
   }
 
-  .update p {
+  .ride-head h2 {
     margin: 0;
-    color: var(--muted);
-    line-height: 1.6;
+    font-size: 1.15rem;
+    line-height: 1.25;
   }
 
-  .update span {
-    display: block;
-    margin-top: 6px;
+  .ride-head a {
+    color: var(--ink);
+    text-decoration: none;
+  }
+
+  .ride-head a:hover {
+    color: var(--accent);
+  }
+
+  .ride-date {
+    color: var(--muted);
+    font-size: 0.85rem;
+    white-space: nowrap;
+  }
+
+  .ride-meta {
+    margin: 8px 0 0;
     color: var(--accent);
     font-size: 0.9rem;
   }
 
-  footer {
-    margin-top: 28px;
+  .ride-summary {
+    margin: 10px 0 0;
     color: var(--muted);
-    font-size: 0.88rem;
+    line-height: 1.6;
+  }
+
+  footer {
+    margin-top: 22px;
+    color: var(--muted);
+    font-size: 0.86rem;
     border-top: 1px solid var(--line);
     padding-top: 12px;
+  }
+
+  footer a {
+    color: var(--accent);
   }
 
   @media (max-width: 720px) {
     #main-content {
       padding: 20px 16px 36px;
+    }
+
+    .intro {
+      padding: 20px;
+    }
+
+    .stats {
+      grid-template-columns: 1fr;
+    }
+
+    .ride-head {
+      display: block;
+    }
+
+    .ride-date {
+      display: block;
+      margin-top: 6px;
     }
   }
 </style>
@@ -140,31 +218,67 @@
   {{ include "partials/nav.vto" }}
 
   <header class="intro">
-    <div class="eyebrow">Bicycle Touring</div>
-    <h1>Touring updates and notes.</h1>
-    <p>Short, practical notes on the route, the ride, and what is next on the tour.</p>
+    <p class="eyebrow">Bicycle Touring Log</p>
+    <h1>{{ tourBlog.collectionName }}</h1>
+    <p>
+      Live ride notes and route stats from my Ride with GPS collection.
+      <a href="{{ tourBlog.sourceUrl }}" target="_blank" rel="noopener">Open the source collection</a>.
+    </p>
   </header>
 
-  <section class="section">
-    <div class="update">
-      <h2>Current Route</h2>
-      <p>Pacific Northwest loop with coastal climbs, gravel segments, and forest campgrounds.</p>
-      <span>Last update: add your date + location here.</span>
-    </div>
-    <div class="update">
-      <h2>Tour Log</h2>
-      <p>Daily mileage, elevation, and gear notes tracked in a lightweight journal.</p>
-      <span>Next stop: add your next checkpoint.</span>
-    </div>
-    <div class="update">
-      <h2>Gear Callouts</h2>
-      <p>Favorites: dynamo lighting, rain shell, camera rig, and tool roll.</p>
-      <span>Swap these lines for fresh highlights.</span>
-    </div>
+  <section class="stats">
+    <article class="stat">
+      <span class="stat-label">Rides</span>
+      <span class="stat-value">{{ tourBlog.stats.rideCount }}</span>
+    </article>
+    <article class="stat">
+      <span class="stat-label">Distance</span>
+      <span class="stat-value">{{ tourBlog.stats.distanceLabel }}</span>
+    </article>
+    <article class="stat">
+      <span class="stat-label">Climbing</span>
+      <span class="stat-value">{{ tourBlog.stats.elevationLabel }}</span>
+    </article>
   </section>
 
+  {{ if tourBlog.errorMessage }}
+  <section class="status error">
+    <p>{{ tourBlog.errorMessage }}</p>
+  </section>
+  {{ /if }}
+
+  {{ if tourBlog.entries.length === 0 }}
+  <section class="status">
+    <p>No rides are available yet. Publish rides to the collection and this page will update automatically.</p>
+  </section>
+  {{ else }}
+  <section class="feed">
+    {{ for ride of tourBlog.entries }}
+    <article class="ride">
+      {{ if ride.imageUrl }}
+      <img class="ride-image" src="{{ ride.imageUrl }}" alt="{{ ride.title }} map preview">
+      {{ /if }}
+      <div class="ride-body">
+        <div class="ride-head">
+          <h2>
+            <a href="{{ ride.url }}" target="_blank" rel="noopener">{{ ride.title }}</a>
+          </h2>
+          {{ if ride.dateLabel }}
+          <span class="ride-date">{{ ride.dateLabel }}</span>
+          {{ /if }}
+        </div>
+        <p class="ride-meta">{{ [ride.location, ride.distanceLabel, ride.elevationLabel].filter(Boolean).join(" | ") }}</p>
+        {{ if ride.summary }}
+        <p class="ride-summary">{{ ride.summary }}</p>
+        {{ /if }}
+      </div>
+    </article>
+    {{ /for }}
+  </section>
+  {{ /if }}
+
   <footer>
-    Touring updates get refreshed when I roll into a new town.
+    Last sync: {{ tourBlog.fetchedAtLabel }}.
   </footer>
 </div>
 

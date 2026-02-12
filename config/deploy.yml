@@ -51,9 +51,12 @@ builder:
 env:
   clear:
     NODE_ENV: production
+    RIDE_WITH_GPS_COLLECTION_ID: "4155269"
   secret:
     - DB_FILE_NAME
     - SESSION_DB
+    - RIDE_WITH_GPS_API_KEY
+    - RIDE_WITH_GPS_AUTH_TOKEN
 
 # Aliases are triggered with "bin/kamal <alias>". You can overwrite arguments on invocation:
 # "bin/kamal app logs -r job" will tail logs from the first server in the job section.
