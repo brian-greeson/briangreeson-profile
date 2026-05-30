@@ -44,7 +44,7 @@ Do not call the page a "case study" in visible UI.
 
 ### Problem
 
-Open with the practical flatlands problem in a story-driven way: pilots who do not live near launchable terrain often need a tow site, extra vehicle, extra operator, or an expensive payout winch. soloTow is a DIY attempt to make towing more portable and accessible.
+Open with the practical flatlands problem in a story-driven way: pilots who do not live near launchable terrain often need a tow site, but towing adds logistics and people. It can require an extra vehicle, an extra operator, or an expensive payout winch. soloTow is a DIY attempt to make towing more portable and accessible while giving a capable pilot more independence.
 
 Keep this section short and move quickly into the design constraints.
 
