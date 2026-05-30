@@ -33,6 +33,8 @@ test("soloTow page renders the approved project post content", async () => {
   assert.doesNotMatch(html, /case study/i);
   assert.doesNotMatch(html, /<strong>/i);
   assert.doesNotMatch(html, /<\/strong>/i);
+  assert.doesNotMatch(html, /aspect-ratio:\s*4\s*\/\s*3/i);
+  assert.doesNotMatch(html, /object-fit:\s*cover/i);
   assert.doesNotMatch(html, /soloTow quick facts/i);
   assert.doesNotMatch(html, /Pay-in failure behavior/i);
   assert.doesNotMatch(html, /<span class="fact-label">Status<\/span>/);
