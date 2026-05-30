@@ -98,9 +98,10 @@ Explain the RF tradeoff clearly:
 
 At launch, the pilot may be low to the ground and roughly 1 km away from the winch. That is one of the most dangerous moments, but it is also when the RF link is weakest. The signal could disappear if occluded by clothing or harness. The timeout had to be tuned to fail safe when the remote connection was truly lost, without causing constant nuisance cutouts during launch setup.
 
-Mention future improvement:
+Mention future improvements:
 
-- A relay station to improve signal strength and reduce occlusion issues.
+- A relay radio station that can be placed closer to the pilot and maintain a steadier link between the pilot and winch, significantly improving remote performance.
+- A smaller winch motor to reduce system weight and make transportation easier.
 
 ### Buildability
 
