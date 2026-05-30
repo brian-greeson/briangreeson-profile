@@ -137,11 +137,6 @@
     line-height: 1.72;
   }
 
-  .section strong {
-    color: var(--ink);
-    font-weight: 600;
-  }
-
   .feature-list {
     display: grid;
     grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -269,9 +264,9 @@
     <section class="section">
       <h2>System architecture</h2>
       <p>
-        The drive side is a <strong>5 kW hub motor</strong> controlled by a <strong>Kelly motor controller</strong>,
-        mounted into an aluminum extrusion frame with the tow drum and line. The remote side uses
-        <strong>Heltec LoRa remote</strong> hardware to send commands from the pilot back to the winch.
+        The drive side is a 5 kW hub motor controlled by a Kelly motor controller, mounted into an aluminum extrusion
+        frame with the tow drum and line. The remote side uses Heltec LoRa remote hardware to send commands from the
+        pilot back to the winch.
       </p>
       <p>
         I kept the layout deliberately plain. You can look at it and understand what each part is doing. The frame is
@@ -283,16 +278,15 @@
     <section class="section">
       <h2>Remote safety</h2>
       <p>
-        The remote has a <strong>deadman switch</strong>. The controller also times out if it stops hearing from the
-        remote, so the winch is not allowed to keep acting on stale commands. Tuning that timeout was less obvious than
-        it sounds.
+        The remote has a deadman switch. The controller also times out if it stops hearing from the remote, so the winch
+        is not allowed to keep acting on stale commands. Tuning that timeout was less obvious than it sounds.
       </p>
       <p>
         At launch, the pilot can be low to the ground and about 1 km away. That is exactly when the RF link is weakest,
         and it is also one of the worst times to lose command authority. Clothing or a harness could block the signal.
         The timeout had to be short enough to fail safe, but not so short that the winch cut out constantly during
-        setup. The <strong>Controller power limit</strong> is another simple guardrail: keep normal operation away from
-        aggressive over-tow forces in the first place.
+        setup. The controller power limit is another simple guardrail: keep normal operation away from aggressive
+        over-tow forces in the first place.
       </p>
     </section>
 
@@ -312,9 +306,9 @@
     <section class="section">
       <h2>Field validation</h2>
       <p>
-        The current system is fully functional. It has completed <strong>60 successful tows</strong>, with an average tow
-        altitude around <strong>650 ft</strong>. Those flights are the part that matters most to me. They exposed the
-        real setup time, the real radio behavior, and the real tow loads better than bench testing ever could.
+        The current system is fully functional. It has completed 60 successful tows, with an average tow altitude around
+        650 ft. Those flights are the part that matters most to me. They exposed the real setup time, the real radio
+        behavior, and the real tow loads better than bench testing ever could.
       </p>
     </section>
 
