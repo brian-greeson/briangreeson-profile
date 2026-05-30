@@ -244,9 +244,9 @@
       <p class="eyebrow">Paragliding build</p>
       <h1>soloTow</h1>
       <p>
-        A portable paragliding self-tow winch built around simple assembly, remote control, and safe failure behavior.
-        The project started with a practical flatlands problem: towing can unlock flying sites, but it usually adds
-        people, vehicles, gear, and cost.
+        A small pay-in tow winch I built for flatland paragliding. The goal was simple: make towing less dependent on
+        extra vehicles, extra people, and expensive equipment, without ignoring the places where a remote winch can get
+        dangerous.
       </p>
     </div>
     <figure class="hero-media">
@@ -283,42 +283,43 @@
     <section class="section">
       <h2>The problem</h2>
       <p>
-        If you live away from launchable terrain, towing can be the difference between watching the weather and actually
-        flying. The catch is that towing adds logistics. It can mean finding a tow site, an extra vehicle, an extra
-        operator, or an expensive payout winch before the flying part even starts.
+        In the flatlands, towing is often the only practical way to get airborne. The flying part can be simple enough;
+        getting everything lined up is usually the hard part. A normal towing setup can mean a tow site, a winch, a
+        vehicle, and another person who knows what they are doing.
       </p>
       <p>
-        soloTow is a DIY pay-in winch built to make that process more portable and accessible, while giving a capable
-        pilot more independence.
+        soloTow was my attempt to make that process smaller. Not automatic, not beginner-proof, and not a commercial tow
+        system. Just a portable DIY winch that gives a current, capable pilot more independence when the site and weather
+        make sense.
       </p>
     </section>
 
     <section class="section">
-      <h2>The design target</h2>
+      <h2>What mattered</h2>
       <p>
-        The hard part was not simply making a winch that pulls. The useful version had to be easy enough for a competent
-        builder to assemble, light enough to move, and conservative enough that common failure modes did not keep
-        applying tow force when they should not.
+        Making something pull a line is not the interesting part. The useful version had to be buildable without a
+        machine shop, easy to inspect in the field, and conservative about what happens when communication gets flaky or
+        something stops behaving.
       </p>
       <ul class="feature-list">
-        <li>Aluminum extrusion frame and few custom parts to keep fabrication approachable.</li>
-        <li>3D printed components where they simplify mounting or packaging.</li>
-        <li>Off-the-shelf drive, battery, controller, and radio components.</li>
-        <li>Controller power limiting to reduce the chance of dangerous over-tow forces.</li>
+        <li>Aluminum extrusion for the frame, with very few custom parts.</li>
+        <li>3D printed pieces for small mounts and packaging problems.</li>
+        <li>Off-the-shelf drive, battery, controller, and radio hardware.</li>
+        <li>Controller power limiting so the winch is not trying to overpower the pilot.</li>
       </ul>
     </section>
 
     <section class="section">
       <h2>Pay-in failure behavior</h2>
       <p>
-        soloTow uses a pay-in towing architecture. In that setup, the pilot is flying toward the line. If the winch or
-        controller has a mechanical or control problem, line tension tends to drop toward zero and the pilot can
-        transition to a normal landing pattern.
+        soloTow is a pay-in towing system. The pilot launches away from the winch and flies toward the line as it is
+        pulled in. That choice matters because some failures are more forgiving. If the winch or controller quits doing
+        useful work, line tension tends to fall off instead of staying loaded.
       </p>
       <div class="callout">
         <p>
-          That does not make towing safe. It does give some winch-side failures a more forgiving default behavior than a
-          payout system, where the pilot remains coupled to a line source feeding away from the winch.
+          That does not make towing safe. It just means a bad day at the winch is more likely to become a normal landing
+          than an ongoing pull. For this project, that was a better default than a payout setup.
         </p>
       </div>
     </section>
@@ -326,58 +327,60 @@
     <section class="section">
       <h2>System architecture</h2>
       <p>
-        The winch is built around a <strong>5 kW rated hub motor</strong>, a <strong>Kelly motor controller</strong>,
-        battery-powered electric drive, tow drum, tow line, and an aluminum extrusion frame. The control side uses
-        <strong>Heltec LoRa dev boards</strong> for communication between the handheld remote and the winch.
+        The drive side is a <strong>5 kW hub motor</strong> controlled by a <strong>Kelly motor controller</strong>,
+        mounted into an aluminum extrusion frame with the tow drum and line. The remote side uses
+        <strong>Heltec LoRa remote</strong> hardware to send commands from the pilot back to the winch.
       </p>
       <p>
-        The architecture is intentionally plain. Parts are visible, inspectable, and replaceable. The frame avoids
-        specialized fabrication where possible, and 3D printed pieces handle the smaller mounting and packaging details.
+        I kept the layout deliberately plain. You can look at it and understand what each part is doing. The frame is
+        not hiding behind custom fabrication, and the printed parts solve small problems instead of becoming the whole
+        project.
       </p>
     </section>
 
     <section class="section">
       <h2>Remote safety</h2>
       <p>
-        The remote includes a <strong>deadman switch</strong>, and the controller uses a timeout if the remote connection
-        is lost. That timeout is a real design tradeoff: at launch, the pilot may be low to the ground and roughly 1 km
-        away from the winch. That is one of the moments where stale commands would be most dangerous, but it is also
-        where the RF link is weakest.
+        The remote has a <strong>deadman switch</strong>. The controller also times out if it stops hearing from the
+        remote, so the winch is not allowed to keep acting on stale commands. Tuning that timeout was less obvious than
+        it sounds.
       </p>
       <p>
-        The signal could disappear when occluded by clothing or harness. The timeout had to be tuned to fail safe when
-        the link was truly gone without causing constant nuisance cutouts during launch setup. The controller power
-        limit is another passive safety choice, keeping normal operation away from aggressive over-tow forces.
+        At launch, the pilot can be low to the ground and about 1 km away. That is exactly when the RF link is weakest,
+        and it is also one of the worst times to lose command authority. Clothing or a harness could block the signal.
+        The timeout had to be short enough to fail safe, but not so short that the winch cut out constantly during
+        setup. The <strong>Controller power limit</strong> is another simple guardrail: keep normal operation away from
+        aggressive over-tow forces in the first place.
       </p>
     </section>
 
     <section class="section">
       <h2>What I would improve next</h2>
       <p>
-        The radio link is the first obvious improvement. A relay radio station placed closer to the pilot could maintain
-        a steadier link between the pilot and winch, significantly improving remote performance when the pilot is low
-        and far away.
+        The radio link is the first thing I would improve. A relay radio station placed closer to the pilot would keep a
+        cleaner link between the pilot and winch, especially when the pilot is low, far away, or partially blocked by
+        gear.
       </p>
       <p>
-        The other improvement is weight. A smaller winch motor would reduce the system weight and make transportation
-        easier while keeping the design focused on the towing performance it actually needs.
+        The other obvious improvement is weight. The current motor works, but a smaller winch motor would make the whole
+        system easier to move without changing what I actually need this winch to do.
       </p>
     </section>
 
     <section class="section">
       <h2>Field validation</h2>
       <p>
-        The current system is fully functional and has completed <strong>60 successful tows</strong>, with an average tow
-        altitude around <strong>650 ft</strong>. That field use matters because it tested the build in the conditions it
-        was designed for: real setup, real launch distance, real radio behavior, and real tow loads.
+        The current system is fully functional. It has completed <strong>60 successful tows</strong>, with an average tow
+        altitude around <strong>650 ft</strong>. Those flights are the part that matters most to me. They exposed the
+        real setup time, the real radio behavior, and the real tow loads better than bench testing ever could.
       </p>
     </section>
 
     <section class="section">
       <h2>Safety note</h2>
       <p>
-        Paragliding and towing are dangerous. This project is not intended for inexperienced pilots, club or commercial
-        towing, or use without proper instruction and judgment.
+        Paragliding and towing are dangerous. This is not for inexperienced pilots, club or commercial towing, or anyone
+        trying to skip proper instruction and judgment.
       </p>
     </section>
   </main>
