@@ -21,6 +21,7 @@ test("soloTow page renders the approved project post content", async () => {
   assert.match(html, /5 kW hub motor/);
   assert.match(html, /Heltec LoRa remote/);
   assert.match(html, /Flying in the flatlands requires towing/);
+  assert.match(html, /Why not pay out towing\?/);
   assert.match(html, /pay-in towing/i);
   assert.match(html, /deadman switch/i);
   assert.match(html, /Controller power limit/i);
@@ -30,6 +31,7 @@ test("soloTow page renders the approved project post content", async () => {
   assert.match(html, /raw\.githubusercontent\.com\/brian-greeson\/soloTow\/main\/guide\/IMG_1869\.jpeg/);
   assert.doesNotMatch(html, /case study/i);
   assert.doesNotMatch(html, /soloTow quick facts/i);
+  assert.doesNotMatch(html, /Pay-in failure behavior/i);
   assert.doesNotMatch(html, /<span class="fact-label">Status<\/span>/);
   assert.doesNotMatch(html, /<span class="fact-label">Field use<\/span>/);
   assert.doesNotMatch(html, /href=["']https:\/\/github\.com\/brian-greeson\/soloTow/i);
