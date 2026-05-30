@@ -48,6 +48,8 @@ jspm_packages/
 
 DS-STORE
 
+.superpowers/
+
 *.db
 *.db-wal
 *.db-shm
