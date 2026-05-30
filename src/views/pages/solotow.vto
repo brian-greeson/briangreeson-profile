@@ -116,36 +116,6 @@
     line-height: 1.4;
   }
 
-  .facts {
-    display: grid;
-    grid-template-columns: repeat(5, minmax(120px, 1fr));
-    gap: 10px;
-    margin: 18px 0 0;
-  }
-
-  .fact {
-    min-height: 86px;
-    padding: 13px;
-    border: 1px solid var(--line);
-    background: #ffffff;
-  }
-
-  .fact-label {
-    display: block;
-    color: var(--muted);
-    font-size: 0.72rem;
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
-  }
-
-  .fact-value {
-    display: block;
-    margin-top: 8px;
-    font-size: 1rem;
-    line-height: 1.3;
-    font-weight: 600;
-  }
-
   .post {
     max-width: 760px;
     margin: 0;
@@ -215,9 +185,6 @@
       gap: 20px;
     }
 
-    .facts {
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-    }
   }
 
   @media (max-width: 720px) {
@@ -229,7 +196,6 @@
       padding-top: 26px;
     }
 
-    .facts,
     .feature-list {
       grid-template-columns: 1fr;
     }
@@ -256,41 +222,17 @@
     </figure>
   </header>
 
-  <section class="facts" aria-label="soloTow quick facts">
-    <div class="fact">
-      <span class="fact-label">Status</span>
-      <span class="fact-value">Fully functional build</span>
-    </div>
-    <div class="fact">
-      <span class="fact-label">Field use</span>
-      <span class="fact-value">60 successful tows</span>
-    </div>
-    <div class="fact">
-      <span class="fact-label">Average tow</span>
-      <span class="fact-value">650 ft average tow altitude</span>
-    </div>
-    <div class="fact">
-      <span class="fact-label">Drive</span>
-      <span class="fact-value">5 kW hub motor</span>
-    </div>
-    <div class="fact">
-      <span class="fact-label">Remote</span>
-      <span class="fact-value">Heltec LoRa remote</span>
-    </div>
-  </section>
-
   <main class="post">
     <section class="section">
       <h2>The problem</h2>
       <p>
-        In the flatlands, towing is often the only practical way to get airborne. The flying part can be simple enough;
-        getting everything lined up is usually the hard part. A normal towing setup can mean a tow site, a winch, a
-        vehicle, and another person who knows what they are doing.
+        Flying in the flatlands requires towing. Unfortunately, towing usually adds a lot of logistics: a dedicated tow
+        vehicle, extra people, and an expensive payout tow winch.
       </p>
       <p>
-        soloTow was my attempt to make that process smaller. Not automatic, not beginner-proof, and not a commercial tow
-        system. Just a portable DIY winch that gives a current, capable pilot more independence when the site and weather
-        make sense.
+        soloTow is a DIY attempt to make towing more portable and accessible. It is not automatic, beginner-proof, or a
+        commercial tow system. The goal is a portable winch that gives a current, capable pilot more independence when
+        the site and weather make sense.
       </p>
     </section>
 
