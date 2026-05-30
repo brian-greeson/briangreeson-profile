@@ -10,7 +10,7 @@ Source material comes from the public GitHub repository at `brian-greeson/soloTo
 
 The primary audience is potential employers and collaborators evaluating Brian's engineering ability. The secondary audience is paragliding pilots interested in the DIY winch.
 
-The page should therefore read like an engaging project blog post, not a resume entry and not a complete build manual. It should show engineering judgment through real constraints, design decisions, and field validation, while linking to GitHub for deeper build details.
+The page should therefore read like an engaging project blog post, not a resume entry and not a complete build manual. It should show engineering judgment through real constraints, design decisions, and field validation. The initial implementation must not include a visible GitHub link.
 
 ## Tone
 
@@ -80,7 +80,7 @@ Describe the system at a high level:
 - Heltec LoRa dev boards for remote/control communication
 - Handheld remote with deadman switch
 
-This section should not duplicate the full GitHub bill of materials. It should explain the architecture and link readers to GitHub for the full build guide.
+This section should not duplicate the full GitHub bill of materials. It should explain the architecture at a profile-site level without sending readers to the repository.
 
 ### Remote Safety
 
@@ -121,11 +121,7 @@ Close with real-world validation:
 
 Make clear that this is a personal DIY project and not a commercial or beginner product.
 
-### Links And Caveat
-
-Include a link to the GitHub repository:
-
-`https://github.com/brian-greeson/soloTow`
+### Caveat
 
 Include a safety caveat consistent with the README:
 
@@ -158,5 +154,5 @@ Implementation should be verified with:
 
 - `npm run build`
 - Local browser check of the new page on desktop and mobile widths
-- Link checks for GitHub and internal navigation
+- Link checks for internal navigation
 - Visual check that the hero image loads and text does not overlap at mobile widths
