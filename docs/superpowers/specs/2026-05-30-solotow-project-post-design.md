@@ -35,7 +35,7 @@ Use the soloTow GitHub photo as the main visual:
 Show concise quick facts near the hero:
 
 - Fully functional build
-- 100+ successful tows
+- 60 successful tows
 - 650 ft average tow altitude
 - 5 kW hub motor
 - Heltec LoRa remote
@@ -116,7 +116,7 @@ Frame this as an intentional engineering choice, not just convenience. The desig
 Close with real-world validation:
 
 - Fully functional
-- More than 100 successful tows
+- 60 successful tows
 - Average tow altitude around 650 ft
 
 Make clear that this is a personal DIY project and not a commercial or beginner product.
