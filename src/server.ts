@@ -54,7 +54,7 @@ app.get("/up", async (req, res) => {
   res.sendStatus(200);
 });
 
-const port = 3000;
+const port = Number(process.env.PORT ?? 3000);
 app.listen(port, () => {
   console.log(`http://localhost:${port}`);
 });
