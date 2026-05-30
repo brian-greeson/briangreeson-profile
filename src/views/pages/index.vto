@@ -112,6 +112,32 @@
     font-weight: 600;
   }
 
+  .project {
+    padding: 10px 0 12px;
+    border-bottom: 1px solid var(--line);
+  }
+
+  .project:last-child {
+    border-bottom: none;
+  }
+
+  .project h2 {
+    margin: 0 0 6px;
+    font-size: 1.05rem;
+  }
+
+  .project p {
+    margin: 0;
+    color: var(--muted);
+    line-height: 1.6;
+  }
+
+  .project a {
+    color: var(--accent);
+    text-decoration: none;
+    font-size: 0.92rem;
+  }
+
   .skills {
     list-style: none;
     padding: 0;
@@ -173,6 +199,13 @@
     <p>What i do in my spare time:</p>
   </div>
   <section class="section">
+    <div class="project">
+      <h2>soloTow</h2>
+      <p>
+        A portable paragliding self-tow winch built around simple assembly, remote control, and passive safety choices.
+      </p>
+      <a href="/projects/solotow">Read the project post</a>
+    </div>
     <div class="project">
       <h2>Impulse - ShotSense</h2>
       <p>ShotSense is a pickleball paddle accessory that captures precise swing motion and paddle orientation using
