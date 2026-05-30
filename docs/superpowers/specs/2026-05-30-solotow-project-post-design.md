@@ -59,6 +59,7 @@ Key constraints:
 - Portable field setup
 - Lower cost than commercial alternatives
 - Pay-in towing architecture with more forgiving failure behavior than payout towing
+- Controller power limiting to reduce the chance of dangerous over-tow forces
 - Remote control reliability at launch distance
 - Safe defaults when pilot input or radio link is lost
 
@@ -91,6 +92,7 @@ Explain the implemented safety behaviors:
 - Deadman switch in the remote
 - Timeout behavior when connection to the remote is lost
 - Controller behavior that prevents stale remote commands from continuing indefinitely
+- Controller power limit set so the winch is designed not to aggressively over-tow the pilot under normal operation
 
 Explain the RF tradeoff clearly:
 
