@@ -1,0 +1,390 @@
+{{ layout "layouts/appLayout.vto"}}
+<style>
+  @import url("https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&display=swap");
+
+  :root {
+    --ink: #111318;
+    --muted: #5f656f;
+    --line: #e2e6ec;
+    --accent: #15566c;
+    --accent-soft: #e4f0f3;
+    --paper: #f7f9fb;
+  }
+
+  * {
+    box-sizing: border-box;
+  }
+
+  body {
+    min-height: 100vh;
+    margin: 0;
+    font-family: "Space Grotesk", "Trebuchet MS", sans-serif;
+    color: var(--ink);
+    background: linear-gradient(180deg, #ffffff 0%, #f7f9fb 78%, #e4e8ee 100%);
+  }
+
+  #main-content {
+    padding: 28px 20px 46px;
+  }
+
+  .page {
+    max-width: 980px;
+    margin: 0 auto;
+  }
+
+  .nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 6px 0 18px;
+    gap: 14px;
+    flex-wrap: wrap;
+    border-bottom: 1px solid var(--line);
+  }
+
+  .brand {
+    font-weight: 500;
+    font-size: 1rem;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+  }
+
+  .nav-links {
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+    font-size: 0.9rem;
+  }
+
+  .nav a {
+    color: var(--ink);
+    text-decoration: none;
+  }
+
+  .nav a:hover {
+    color: var(--accent);
+  }
+
+  .hero {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(280px, 0.86fr);
+    gap: 30px;
+    align-items: center;
+    padding: 34px 0 24px;
+    border-bottom: 1px solid var(--line);
+  }
+
+  .eyebrow {
+    margin: 0 0 10px;
+    color: var(--muted);
+    font-size: 0.78rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+  }
+
+  .hero h1 {
+    margin: 0 0 12px;
+    font-size: clamp(2.4rem, 5vw, 4rem);
+    line-height: 1;
+    font-weight: 700;
+  }
+
+  .hero p {
+    margin: 0;
+    color: var(--muted);
+    font-size: 1.06rem;
+    line-height: 1.65;
+    max-width: 640px;
+  }
+
+  .hero-media {
+    margin: 0;
+  }
+
+  .hero-media img {
+    display: block;
+    width: 100%;
+    aspect-ratio: 4 / 3;
+    object-fit: cover;
+    border: 1px solid var(--line);
+  }
+
+  .hero-media figcaption {
+    margin-top: 8px;
+    color: var(--muted);
+    font-size: 0.82rem;
+    line-height: 1.4;
+  }
+
+  .facts {
+    display: grid;
+    grid-template-columns: repeat(5, minmax(120px, 1fr));
+    gap: 10px;
+    margin: 18px 0 0;
+  }
+
+  .fact {
+    min-height: 86px;
+    padding: 13px;
+    border: 1px solid var(--line);
+    background: #ffffff;
+  }
+
+  .fact-label {
+    display: block;
+    color: var(--muted);
+    font-size: 0.72rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
+
+  .fact-value {
+    display: block;
+    margin-top: 8px;
+    font-size: 1rem;
+    line-height: 1.3;
+    font-weight: 600;
+  }
+
+  .post {
+    max-width: 760px;
+    margin: 0;
+  }
+
+  .section {
+    padding: 26px 0 0;
+  }
+
+  .section h2 {
+    margin: 0 0 10px;
+    font-size: 1.22rem;
+    line-height: 1.25;
+  }
+
+  .section p {
+    margin: 0 0 13px;
+    color: var(--muted);
+    line-height: 1.72;
+  }
+
+  .section strong {
+    color: var(--ink);
+    font-weight: 600;
+  }
+
+  .feature-list {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 10px;
+    padding: 0;
+    margin: 16px 0 0;
+    list-style: none;
+  }
+
+  .feature-list li {
+    padding: 12px 13px;
+    border: 1px solid var(--line);
+    background: #ffffff;
+    color: var(--muted);
+    line-height: 1.5;
+  }
+
+  .callout {
+    margin-top: 16px;
+    padding: 15px 16px;
+    border-left: 4px solid var(--accent);
+    background: var(--accent-soft);
+  }
+
+  .callout p {
+    margin: 0;
+    color: var(--ink);
+  }
+
+  footer {
+    margin-top: 32px;
+    color: var(--muted);
+    font-size: 0.88rem;
+    border-top: 1px solid var(--line);
+    padding-top: 14px;
+  }
+
+  @media (max-width: 860px) {
+    .hero {
+      grid-template-columns: 1fr;
+      gap: 20px;
+    }
+
+    .facts {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+  }
+
+  @media (max-width: 720px) {
+    #main-content {
+      padding: 20px 16px 38px;
+    }
+
+    .hero {
+      padding-top: 26px;
+    }
+
+    .facts,
+    .feature-list {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>
+
+<div class="page">
+  {{ include "partials/nav.vto" }}
+
+  <header class="hero">
+    <div>
+      <p class="eyebrow">Paragliding build</p>
+      <h1>soloTow</h1>
+      <p>
+        A portable paragliding self-tow winch built around simple assembly, remote control, and safe failure behavior.
+        The project started with a practical flatlands problem: towing can unlock flying sites, but it usually adds
+        people, vehicles, gear, and cost.
+      </p>
+    </div>
+    <figure class="hero-media">
+      <img src="https://raw.githubusercontent.com/brian-greeson/soloTow/main/guide/IMG_1869.jpeg"
+        alt="soloTow winch build in the field">
+      <figcaption>soloTow field build with the tow drum, frame, and drive hardware assembled.</figcaption>
+    </figure>
+  </header>
+
+  <section class="facts" aria-label="soloTow quick facts">
+    <div class="fact">
+      <span class="fact-label">Status</span>
+      <span class="fact-value">Fully functional build</span>
+    </div>
+    <div class="fact">
+      <span class="fact-label">Field use</span>
+      <span class="fact-value">60 successful tows</span>
+    </div>
+    <div class="fact">
+      <span class="fact-label">Average tow</span>
+      <span class="fact-value">650 ft average tow altitude</span>
+    </div>
+    <div class="fact">
+      <span class="fact-label">Drive</span>
+      <span class="fact-value">5 kW hub motor</span>
+    </div>
+    <div class="fact">
+      <span class="fact-label">Remote</span>
+      <span class="fact-value">Heltec LoRa remote</span>
+    </div>
+  </section>
+
+  <main class="post">
+    <section class="section">
+      <h2>The problem</h2>
+      <p>
+        If you live away from launchable terrain, towing can be the difference between watching the weather and actually
+        flying. The catch is that towing adds logistics. It can mean finding a tow site, an extra vehicle, an extra
+        operator, or an expensive payout winch before the flying part even starts.
+      </p>
+      <p>
+        soloTow is a DIY pay-in winch built to make that process more portable and accessible, while giving a capable
+        pilot more independence.
+      </p>
+    </section>
+
+    <section class="section">
+      <h2>The design target</h2>
+      <p>
+        The hard part was not simply making a winch that pulls. The useful version had to be easy enough for a competent
+        builder to assemble, light enough to move, and conservative enough that common failure modes did not keep
+        applying tow force when they should not.
+      </p>
+      <ul class="feature-list">
+        <li>Aluminum extrusion frame and few custom parts to keep fabrication approachable.</li>
+        <li>3D printed components where they simplify mounting or packaging.</li>
+        <li>Off-the-shelf drive, battery, controller, and radio components.</li>
+        <li>Controller power limiting to reduce the chance of dangerous over-tow forces.</li>
+      </ul>
+    </section>
+
+    <section class="section">
+      <h2>Pay-in failure behavior</h2>
+      <p>
+        soloTow uses a pay-in towing architecture. In that setup, the pilot is flying toward the line. If the winch or
+        controller has a mechanical or control problem, line tension tends to drop toward zero and the pilot can
+        transition to a normal landing pattern.
+      </p>
+      <div class="callout">
+        <p>
+          That does not make towing safe. It does give some winch-side failures a more forgiving default behavior than a
+          payout system, where the pilot remains coupled to a line source feeding away from the winch.
+        </p>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2>System architecture</h2>
+      <p>
+        The winch is built around a <strong>5 kW rated hub motor</strong>, a <strong>Kelly motor controller</strong>,
+        battery-powered electric drive, tow drum, tow line, and an aluminum extrusion frame. The control side uses
+        <strong>Heltec LoRa dev boards</strong> for communication between the handheld remote and the winch.
+      </p>
+      <p>
+        The architecture is intentionally plain. Parts are visible, inspectable, and replaceable. The frame avoids
+        specialized fabrication where possible, and 3D printed pieces handle the smaller mounting and packaging details.
+      </p>
+    </section>
+
+    <section class="section">
+      <h2>Remote safety</h2>
+      <p>
+        The remote includes a <strong>deadman switch</strong>, and the controller uses a timeout if the remote connection
+        is lost. That timeout is a real design tradeoff: at launch, the pilot may be low to the ground and roughly 1 km
+        away from the winch. That is one of the moments where stale commands would be most dangerous, but it is also
+        where the RF link is weakest.
+      </p>
+      <p>
+        The signal could disappear when occluded by clothing or harness. The timeout had to be tuned to fail safe when
+        the link was truly gone without causing constant nuisance cutouts during launch setup. The controller power
+        limit is another passive safety choice, keeping normal operation away from aggressive over-tow forces.
+      </p>
+    </section>
+
+    <section class="section">
+      <h2>What I would improve next</h2>
+      <p>
+        The radio link is the first obvious improvement. A relay radio station placed closer to the pilot could maintain
+        a steadier link between the pilot and winch, significantly improving remote performance when the pilot is low
+        and far away.
+      </p>
+      <p>
+        The other improvement is weight. A smaller winch motor would reduce the system weight and make transportation
+        easier while keeping the design focused on the towing performance it actually needs.
+      </p>
+    </section>
+
+    <section class="section">
+      <h2>Field validation</h2>
+      <p>
+        The current system is fully functional and has completed <strong>60 successful tows</strong>, with an average tow
+        altitude around <strong>650 ft</strong>. That field use matters because it tested the build in the conditions it
+        was designed for: real setup, real launch distance, real radio behavior, and real tow loads.
+      </p>
+    </section>
+
+    <section class="section">
+      <h2>Safety note</h2>
+      <p>
+        Paragliding and towing are dangerous. This project is not intended for inexperienced pilots, club or commercial
+        towing, or use without proper instruction and judgment.
+      </p>
+    </section>
+  </main>
+
+  <footer>
+    Built and field tested by Brian Greeson.
+  </footer>
+</div>
+
+{{ /layout }}

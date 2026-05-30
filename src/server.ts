@@ -28,6 +28,13 @@ app.get("/projects", async (req, res) => {
   res.type("html").send(result.content);
 });
 
+app.get("/projects/solotow", async (req, res) => {
+  const solotowTemplate = await templates.load("pages/solotow.vto");
+
+  const result = await solotowTemplate();
+  res.type("html").send(result.content);
+});
+
 app.get("/touring", async (req, res) => {
   const touringTemplate = await templates.load("pages/touring.vto");
   const tourBlog = await getTourBlogData();
