@@ -58,8 +58,13 @@ Key constraints:
 - Few custom parts
 - Portable field setup
 - Lower cost than commercial alternatives
+- Pay-in towing architecture with more forgiving failure behavior than payout towing
 - Remote control reliability at launch distance
 - Safe defaults when pilot input or radio link is lost
+
+### Pay-In Failure Behavior
+
+Explain why soloTow uses a pay-in towing model and why that matters for failure behavior. In a pay-in setup, the pilot is flying toward the line. If the winch or controller has a mechanical/control problem, line tension tends to drop toward zero and the pilot can transition to a normal landing pattern. That does not make towing safe, but it gives some winch-side failures a more forgiving default behavior than a payout system.
 
 ### System Architecture
 
