@@ -57,3 +57,18 @@ test("projects page links to the soloTow post", async () => {
   assert.match(html, /href="\/projects\/solotow"/);
   assert.doesNotMatch(html, /href=["']https:\/\/github\.com\/brian-greeson\/soloTow/i);
 });
+
+for (const page of ["index", "projects"]) {
+  test(`${page} page lists GlideHero first`, async () => {
+    const html = await renderTemplate(`pages/${page}.vto`);
+    const glideHeroPosition = html.indexOf("<h2>GlideHero</h2>");
+    const soloTowPosition = html.indexOf("<h2>soloTow</h2>");
+
+    assert.notEqual(glideHeroPosition, -1);
+    assert.match(html, /href="https:\/\/glidehero\.com"/);
+    assert.match(html, /GPS flight\s+recordings/);
+    assert.match(html, /PostgreSQL\/PostGIS/);
+    assert.match(html, /Valkey-backed workers/);
+    assert.ok(glideHeroPosition < soloTowPosition);
+  });
+}
