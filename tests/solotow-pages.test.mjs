@@ -59,6 +59,16 @@ test("projects page links to the soloTow post", async () => {
 });
 
 for (const page of ["index", "projects"]) {
+  test(`${page} page lists TowForce immediately below GlideHero`, async () => {
+    const html = await renderTemplate(`pages/${page}.vto`);
+    const projectHeadings = [...html.matchAll(/<h2>([^<]+)<\/h2>/g)].map((match) => match[1]);
+    const glideHeroPosition = projectHeadings.indexOf("GlideHero");
+
+    assert.equal(projectHeadings[glideHeroPosition + 1], "TowForce");
+    assert.match(html, /href="https:\/\/github\.com\/brian-greeson\/towForce" target="_blank" rel="noopener"/);
+    assert.match(html, /interactive, browser-based 2D paraglider tow simulator/);
+  });
+
   test(`${page} page lists GlideHero first`, async () => {
     const html = await renderTemplate(`pages/${page}.vto`);
     const glideHeroPosition = html.indexOf("<h2>GlideHero</h2>");
